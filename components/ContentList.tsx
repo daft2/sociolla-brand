@@ -12,6 +12,17 @@ type Props = {
 const ContentList = ({ data }: Props) => {
   const [searchText, setSearchText] = React.useState("");
   const [searchedData, setSearchedData] = React.useState<any[]>([]);
+  const scrollViewRef = React.useRef<ScrollView | null>(null);
+  const brandRefs = React.useRef<{ [key: string]: any }>({});
+
+  const scrollToBrand = (brandKey: string) => {
+    if (brandRefs.current[brandKey]) {
+      scrollViewRef.current?.scrollTo({
+        y: brandRefs.current[brandKey],
+        animated: true,
+      });
+    }
+  };
 
   useEffect(() => {
     const temp: string[] = [];
@@ -32,7 +43,10 @@ const ContentList = ({ data }: Props) => {
         <FlatList
           data={Object.keys(data)}
           renderItem={({ item }) => (
-            <Pressable>
+            <Pressable
+              onPress={() => scrollToBrand(item)}
+              disabled={data[item as keyof typeof data].length < 1}
+            >
               <View style={{ padding: 12 }}>
                 <ThemedText
                   type="brand"
@@ -66,10 +80,16 @@ const ContentList = ({ data }: Props) => {
             ))}
         </ScrollView>
       ) : (
-        <ScrollView>
+        <ScrollView ref={scrollViewRef}>
           {Object.keys(data).map((key, i) =>
             data[key as keyof typeof data].length > 0 ? (
-              <View key={key} style={{ padding: 12 }}>
+              <View
+                key={key}
+                style={{ padding: 12 }}
+                onLayout={(event) => {
+                  brandRefs.current[key] = event.nativeEvent.layout.y;
+                }}
+              >
                 <ThemedText type="brand">{key}</ThemedText>
                 {data[key as keyof typeof data].map((brand: any) => (
                   <View key={brand._id} style={{ padding: 12 }}>
