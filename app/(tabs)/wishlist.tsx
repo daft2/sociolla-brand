@@ -1,17 +1,15 @@
 import { StyleSheet } from "react-native";
 
-import { HelloWave } from "@/components/HelloWave";
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-export default function HomeScreen() {
+export default function WishlistScreen() {
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <ThemedView style={styles.titleContainer}>
         <ThemedView style={{ flexDirection: "row" }}>
-          <ThemedText type="title">Welcome Home!</ThemedText>
-          <HelloWave />
+          <ThemedText type="title">Wishlist Screen</ThemedText>
         </ThemedView>
       </ThemedView>
     </SafeAreaView>
