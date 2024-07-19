@@ -24,7 +24,7 @@ const ContentList = ({ data }: Props) => {
   }, [data]);
 
   return (
-    <View>
+    <View style={{ flex: 1 }}>
       <View>
         <SearchBar onChangeText={setSearchText} />
       </View>
