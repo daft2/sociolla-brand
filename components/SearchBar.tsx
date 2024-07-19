@@ -18,7 +18,7 @@ const SearchBar = ({ ...props }: Props) => {
         borderRadius: 4,
       }}
     >
-      <TabBarIcon size={14} name={"search-outline"} color={socColors.border} />
+      <TabBarIcon size={14} name={"search-outline"} color={"#9BA1A6"} />
       <TextInput
         style={{ fontSize: 16, flex: 1 }}
         placeholder="Search brand..."

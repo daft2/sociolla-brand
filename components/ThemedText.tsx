@@ -36,6 +36,7 @@ const styles = StyleSheet.create({
     lineHeight: 32,
     textTransform: "uppercase",
     letterSpacing: 1,
+    fontWeight: "bold",
   },
   brand: {
     fontSize: 14,

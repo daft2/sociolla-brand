@@ -22,6 +22,7 @@ const FeaturedBrandCard = ({ onPress, brand }: Props) => {
           borderRadius: 4,
           borderWidth: 1,
           overflow: "hidden",
+          borderColor: "#E5E5E5",
         }}
       />
     </Pressable>

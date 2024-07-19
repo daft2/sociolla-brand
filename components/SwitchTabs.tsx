@@ -32,7 +32,15 @@ const SwitchTabs = ({ options, selectedTab, onChange }: Props) => {
             paddingVertical: 10,
           }}
         >
-          <ThemedText type="title">{option}</ThemedText>
+          <ThemedText
+            type="title"
+            style={{
+              color: activeTab === option ? "black" : "#9BA1A6",
+              fontWeight: "bold",
+            }}
+          >
+            {option}
+          </ThemedText>
         </Pressable>
       ))}
     </View>
